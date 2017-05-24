@@ -5,7 +5,10 @@ import * as BABYLON from 'babylonjs';
 import 'picnic/src/picnic.scss';
 import './index.scss';
 
+import registerServiceWorker from './registerServiceWorker';
+
 ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
 
 // Get the canvas element from our HTML below
 const canvas = document.querySelector("#canvas");

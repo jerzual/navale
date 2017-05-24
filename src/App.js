@@ -1,7 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-// import logo from './ships.svg';
-import './App.scss';
 
 import PlayerNameInput from "./components/PlayerNameInput";
 import Board from "./containers/Board";
