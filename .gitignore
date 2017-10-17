@@ -9,6 +9,7 @@
 # production
 /build
 
+#ides
 # misc
 .DS_Store
 .env.local
