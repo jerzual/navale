@@ -1,0 +1,20 @@
+= Navale
+
+== Intro
+
+== Specs:
+
+https://fr.wikipedia.org/wiki/Bataille_navale_(jeu)
+
+== Tech stack
+
+=== Languages 
+
+* Golang 
+* Typescript
+
+=== libraries / technologies
+
+* Babylonjs
+* WebSocket
+* Redux
