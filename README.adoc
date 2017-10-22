@@ -11,10 +11,20 @@ https://fr.wikipedia.org/wiki/Bataille_navale_(jeu)
 === Languages 
 
 * Golang 
-* Typescript
+* Ecmascript
 
 === libraries / technologies
 
 * Babylonjs
 * WebSocket
 * Redux
+* React
+
+== How to install
+
+=== Server (go)
+
+  go get github.com/golang/protobuf/proto
+  go get github.com/gorilla/websocket
+
+=== Client (js)
