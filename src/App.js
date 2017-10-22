@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import logo from './ships.svg';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+// import logo from './ships.svg';
+import './App.scss';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="App">
@@ -13,6 +14,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <canvas id="canvas"></canvas>
       </div>
     );
   }
