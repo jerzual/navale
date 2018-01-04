@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import * as React from "react";
 
-class Label extends Component {
+class Label extends React.Component {
     render() {
         return (<div className="board-label">{this.props.text}</div>);
     }

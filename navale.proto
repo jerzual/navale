@@ -22,7 +22,11 @@ message Ship{
     int32 size = 2;
 }
 
-enum ShipType{
-    Destroyer = 0;
+enum ShipType{      // size
+    Carrier = 0;    //	5
+    Battleship = 1; //	4
+ 	Cruiser = 2;    //	3
+ 	Submarine = 3;  //  3
+ 	Destroyer = 4;  //  2
 }
 

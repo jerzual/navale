@@ -1,23 +1,25 @@
-import React, { Component } from "react";
+import * as React from "react";
 
-import PropTypes from "prop-types";
 import Case from "../components/Case";
-import { BOARD_SIZE } from "../constants";
+import { BOARD_SIZE } from "../Constants";
 
-class Board extends Component {
-  static defaultProps = {
+export interface Props{
+    cols:Array<any>;
+    rows:Array<any>;
+}
+
+class Board extends React.Component<Props, object> {
+  static defaultProps: any = {
     cols: [],
     rows: []
   };
-  static propTypes = {
-    cols: PropTypes.array.isRequired,
-    rows: PropTypes.array.isRequired
-  };
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = { cases: {} };
   }
-  componentWillMount() {}
+  componentWillMount() {
+
+  }
   render() {
     return (
       <div

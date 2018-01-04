@@ -18,8 +18,6 @@ module.exports = {
         path: path.join(__dirname, 'dist')
     },
 
-    devtool: 'source-map',
-
     resolve: {
         extensions: ['.js', '.jsx', '.json']
     },
@@ -37,6 +35,7 @@ module.exports = {
                   }
                 }
             },
+            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { 
                 enforce: 'pre', 

@@ -26,5 +26,6 @@ https://fr.wikipedia.org/wiki/Bataille_navale_(jeu)
 
   go get github.com/golang/protobuf/proto
   go get github.com/gorilla/websocket
+  go get github.com/rakyll/statik
 
 === Client (js)

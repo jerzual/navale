@@ -1,8 +1,13 @@
-import React, { Component } from "react";
+import * as React from "react";
 import "./Case.css";
 import { CASE_SIZE } from "../constants";
 
-class Case extends Component {
+export interface Props{
+    x:number;
+    y:number;
+}
+
+class Case extends React.Component<Props, object> {
   state = { color: (this.props.x + this.props.y) % 2 ? "black" : "white" };
   handleClick() {
     this.setState(prevState => {

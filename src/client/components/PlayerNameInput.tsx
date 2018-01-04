@@ -1,14 +1,15 @@
-import React, { Component } from "react";
+import * as React from "react";
+import { Component } from "react";
 
 class PlayerNameInput extends Component {
-  constructor(props) {
+  constructor(props:any) {
     super(props);
     this.state = { value: "" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChange(event) {
+  handleChange(event:any) {
     this.setState({ value: event.target.value });
   }
   handleSubmit() {}

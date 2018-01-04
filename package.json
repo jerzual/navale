@@ -3,21 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "awesome-typescript-loader": "^3.4.1",
     "babylonjs": "^3.0.7",
     "picnic": "^6.4.0",
     "protobufjs": "^6.8.0",
     "react": "^15.6.2",
-    "react-babylonjs": "^0.0.8",
     "react-dnd": "^2.5.4",
     "react-dom": "^15.6.2",
-    "react-redux": "^5.0.5",
+    "react-redux": "^5.0.6",
     "react-redux-i18n": "^1.8.0",
-    "redux": "^3.6.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "uuid": "^3.1.0"
   },
   "scripts": {
     "clean": "rm -rf coverage dist tmp",
-    "lint": "eslint .",
+    "lint": "tslint .",
     "postlint": "npm run typecheck",
     "typecheck": "flow check",
     "pretest": "npm run lint",
@@ -26,9 +27,18 @@
     "test:watch": "jest --watch",
     "build:server": "go install github.com/jerzual/navale",
     "build": "webpack",
-    "build:watch": "webpack-dev-server"
+    "build:watch": "webpack-dev-server",
+    "build:protojs": "pbjs --js src/client/navale.proto.js navale.proto",
+    "build:protots": "pbts -o ./src/client/navale.proto.d.ts src/client/navale.proto.js",
+    "build:protogo": "protoc --go_out=./src/server/proto ./navale.proto"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.6",
+    "@types/jest": "^22.0.0",
+    "@types/react": "^16.0.33",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-redux": "^5.0.14",
+    "@types/redux": "^3.6.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
@@ -41,6 +51,7 @@
     "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.3.0",
     "eslint": "^4.9.0",
     "extract-text-webpack-plugin": "^3.0.1",
     "file-loader": "^1.1.5",
@@ -48,20 +59,34 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.1",
     "node-sass": "^4.5.3",
+    "pbjs": "0.0.5",
+    "react-addons-test-utils": "^15.6.2",
+    "react-babylonjs": "0.0.8",
     "sass-loader": "^6.0.6",
-    "source-map-loader": "^0.2.2",
+    "source-map-loader": "^0.2.3",
     "style-loader": "^0.19.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.2"
   },
   "jest": {
     "testEnvironment": "node",
-    "moduleFileExtensions": [
-      "js"
-    ],
     "coverageDirectory": "coverage",
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/test/preprocess.js"
+    },
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx|js)"
     ]
   }
 }

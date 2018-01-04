@@ -1,3 +1,13 @@
+
+export interface NavaleState {
+    gameStarted: boolean,
+    ui:{
+        cameraPosition:{}
+    }
+    ships: string;
+    enthusiasmLevel: Array<any>;
+}
+
 export default {
     gameStarted: false,
     playerName: '',
