@@ -1,4 +1,4 @@
 export interface GameState {
-    status: "demo" | "play" | "lost";
-    units: [];
+  status: 'demo' | 'play' | 'lost';
+  units: [];
 }

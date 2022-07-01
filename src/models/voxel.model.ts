@@ -1,4 +1,4 @@
-import { Vector3 } from "babylonjs";
+import { Vector } from "./vector.model";
 
 export interface Voxel {
     key: string;
@@ -6,5 +6,5 @@ export interface Voxel {
     static: boolean;
     pressure: number;
     visquosity: number;
-    velocity: Vector3;
+    velocity: Vector;
 }

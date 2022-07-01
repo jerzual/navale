@@ -1,14 +1,14 @@
-import { Vector3 } from "babylonjs";
-import { v4 } from "uuid";
+import { nanoid } from "nanoid";
+import { Vector } from "./vector.model";
 
 export interface Unit {
     id: string;
-    position?: Vector3;
+    position?: Vector;
 }
 
-export function initialUnitState(position: Vector3) {
+export function initialUnitState(position: Vector) {
     return {
-        id: v4(),
+        id: nanoid(),
         position,
     };
 }

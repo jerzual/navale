@@ -1,17 +1,24 @@
-# Start from a Debian image with the latest version of Go installed
-# and a workspace (GOPATH) configured at /go.
-FROM golang
+# Start from a Debian image with the latest version of node installed
+FROM node:18-buster-slim as builder
 
 # Copy the local package files to the container's workspace.
-ADD . /go/src/github.com/jerzual/navale
+COPY package-lock.json .
+COPY package.json .
+RUN npm ci
 
-# Build the outyet command inside the container.
-# (You may fetch or manage dependencies here,
-# either manually or with a tool like "godep".)
-RUN go install github.com/jerzual/navale
+# Copy stuff needed for build
+COPY tsconfig.json .
+COPY .eslintrc.json .
+COPY .prettierrc.json .
+COPY src .
+RUN npm run build
 
-# Run the outyet command by default when the container starts.
-ENTRYPOINT /go/bin/navale
+FROM node:18-buster-slim as runner
+WORKDIR /usr/app
+COPY --from=builder dist .
+COPY --from=builder node_modules .
 
 # Document that the service listens on port 8080.
 EXPOSE 8080
+
+CMD [ "node", "dist/index.js" ]
